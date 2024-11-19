@@ -76,6 +76,7 @@ class MainActivity : AppCompatActivity() {
     private fun saveComic(context: Context, fileName: String, comicObject: JSONObject) {
         val file = File(context.filesDir, fileName)
         file.writeText(comicObject.toString())
+
     }
 
 
