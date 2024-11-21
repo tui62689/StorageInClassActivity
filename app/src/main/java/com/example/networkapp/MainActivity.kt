@@ -16,6 +16,7 @@ import com.squareup.picasso.Picasso
 import android.content.Context
 import org.json.JSONObject
 import java.io.File
+import java.io.FileOutputStream
 
 // TODO (1: Fix any bugs)
 // TODO (2: Add function saveComic(...) to save comic info when downloaded
@@ -74,8 +75,12 @@ class MainActivity : AppCompatActivity() {
 
     // Implement this function
     private fun saveComic(context: Context, fileName: String, comicObject: JSONObject) {
-        val file = File(context.filesDir, fileName)
-        file.writeText(comicObject.toString())
+        try{
+            val outputStream = FileOutputStream(file)
+            outputStream.close()
+        } catch (e: Exception){
+            e.printStackTrace()
+        }
 
     }
 
